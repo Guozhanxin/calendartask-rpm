@@ -1,6 +1,6 @@
 Name:           calendartask
 Version:        1.0.9
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        CalendarTask desktop time-management application
 
 # The upstream archive contains prebuilt binaries and no corresponding sources.
@@ -39,6 +39,8 @@ mv opt/CalendarTask/CalendarTask opt/CalendarTask/CalendarTask.bin
 cp %{SOURCE2} opt/CalendarTask/data/ubuntu-os-release
 cp %{SOURCE3} opt/CalendarTask/CalendarTask
 chmod 0755 opt/CalendarTask/CalendarTask
+mv usr/share/applications/CalendarTask.desktop usr/share/applications/com.xdiarys.www.desktop
+printf '\nStartupWMClass=com.xdiarys.www\n' >> usr/share/applications/com.xdiarys.www.desktop
 
 %install
 rm -rf %{buildroot}
@@ -47,10 +49,12 @@ cp -a opt usr %{buildroot}/
 
 %files
 /opt/CalendarTask
-%{_datadir}/applications/CalendarTask.desktop
+%{_datadir}/applications/com.xdiarys.www.desktop
 %{_datadir}/icons/hicolor/*/apps/com.xdiarys.www.png
 
 %changelog
-* Sat Oct 24 2026 CalendarTask RPM conversion <root@localhost> - 1.0.9-2
+* Sat Oct 24 2026 CalendarTask RPM conversion <root@localhost> - 1.0.9-3
+- Match the desktop file ID to the embedded GTK/Wayland application ID.
+- Add StartupWMClass for X11 window matching.
 - Add Fedora-to-Ubuntu process-local compatibility for the login API.
 - Retarget bundled plugin RUNPATHs to $ORIGIN.

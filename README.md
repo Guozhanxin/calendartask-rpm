@@ -39,3 +39,7 @@ The RPM is written to `dist/`. To build and install it in one step:
 
 The upstream DEB is intentionally not committed because it is a proprietary
 binary and is ignored by Git.
+
+The desktop entry is installed as `com.xdiarys.www.desktop` to match the
+application ID embedded in the Flutter Linux runner. This is required for the
+correct GNOME Wayland Alt+Tab icon; `StartupWMClass` is also provided for X11.
