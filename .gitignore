@@ -1,0 +1,10 @@
+.rpmbuild/
+dist/
+calendartask_linux_x86.deb
+SOURCES/calendartask_linux_x86.deb
+BUILD/
+BUILDROOT/
+RPMS/
+SRPMS/
+*.rpm
+*.src.rpm

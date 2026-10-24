@@ -1,0 +1,3 @@
+#!/bin/sh
+export LD_PRELOAD=/opt/CalendarTask/lib/libcalendartask-compat.so${LD_PRELOAD:+:$LD_PRELOAD}
+exec /opt/CalendarTask/CalendarTask.bin "$@"
